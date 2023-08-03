@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { OpenloginUserInfo } from "@web3auth/openlogin-adapter";
 import { Web3AuthConnector } from "@web3auth/web3auth-wagmi-connector";
 import { useAccount, useDisconnect, useSwitchNetwork } from "wagmi";
 import { ArrowLeftOnRectangleIcon, ArrowsRightLeftIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Balance, BlockieAvatar } from "~~/components/scaffold-eth";
 import { useNetworkColor } from "~~/hooks/scaffold-eth";
-import { web3AuthInstance } from "~~/services/web3/wagmiConnectors";
+import { useGlobalState } from "~~/services/store/store";
 import { getTargetNetwork } from "~~/utils/scaffold-eth";
 
 /**
@@ -18,22 +16,7 @@ export const RainbowKitCustomConnectButton = () => {
   const { connector } = useAccount();
   const { disconnect } = useDisconnect();
   const { switchNetwork } = useSwitchNetwork();
-  const [userInfo, setUserInfo] = useState<Partial<OpenloginUserInfo> | undefined>(undefined);
-
-  useEffect(() => {
-    const getUserInfo = async () => {
-      try {
-        if (web3AuthInstance) {
-          const userInfo = await web3AuthInstance.getUserInfo();
-          console.log(userInfo);
-          setUserInfo(userInfo);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getUserInfo();
-  });
+  const userInfo = useGlobalState(state => state.userInfo);
 
   return (
     <ConnectButton.Custom>
