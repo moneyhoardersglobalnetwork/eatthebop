@@ -82,7 +82,8 @@ export const Header = () => {
             {/* <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" /> */}
           </div>
           <div className="flex flex-col">
-            <span className="font-bold leading-tight">ETH Monster</span>
+            <span className="font-bold leading-tight">Eat The BOP</span>
+            <span className="font-italic leading-tight">A M.H.G.N Game</span>
             <span className="text-xs"></span>
           </div>
         </Link>

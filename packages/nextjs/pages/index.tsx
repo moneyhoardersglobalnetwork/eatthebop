@@ -6,7 +6,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>ETH Monster</title>
+        <title>Eat The BOP Game</title>
         <meta name="description" content="Created with 🏗 scaffold-eth-2" />
       </Head>
 
@@ -14,23 +14,23 @@ const Home: NextPage = () => {
         <div className="px-5">
           <h1 className="text-center mb-8">
             <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">ETH Monster</span>
+            <span className="block text-4xl font-bold">Eat The BOP</span>
           </h1>
 
-          <img alt="Scratchcard" className="cursor-pointer" width={400} height={400} src="/assets/ETHMonster.png" />
+          <img alt="Scratchcard" className="cursor-pointer" width={400} height={400} src="/assets/eatthebop.png" />
 
-          <p className="text-center text-lg">
-            Find the real ETH to win
-          </p>
+          <p className="text-center text-lg">Find the real BOP to win</p>
 
           <div className="center">
-            <Link href="/game" passHref className=" py-2 px-16 mb-1 mt-3 bg-green-500 rounded baseline hover:bg-green-300 disabled:opacity-50">
+            <Link
+              href="/game"
+              passHref
+              className=" py-2 px-16 mb-1 mt-3 bg-green-500 rounded baseline hover:bg-green-300 disabled:opacity-50"
+            >
               Play
             </Link>
           </div>
         </div>
-
-        
       </div>
     </>
   );

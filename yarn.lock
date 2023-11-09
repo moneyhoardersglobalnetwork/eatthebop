@@ -1660,6 +1660,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@openzeppelin/contracts@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@openzeppelin/contracts@npm:5.0.0"
+  checksum: b182288466dfa1c66e227dcd9761d3205f6451bec5c3550783cfd2f6224d67b45e3d7cb01d7f26fb07cc236bb9fb10ce84268a77c5a5ceafd900b938643f55cd
+  languageName: node
+  linkType: hard
+
 "@pedrouid/environment@npm:^1.0.1":
   version: 1.0.1
   resolution: "@pedrouid/environment@npm:1.0.1"
@@ -4981,9 +4988,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001400, caniuse-lite@npm:^1.0.30001406, caniuse-lite@npm:^1.0.30001407":
-  version: 1.0.30001412
-  resolution: "caniuse-lite@npm:1.0.30001412"
-  checksum: 7f5f476355f25a9841c30785c11df5225e2e7613f3334573e8da5490f195ac897a525fe4b514fa926b7be7e7937f15743e466bbc3a3272e848fb7ace7432ae02
+  version: 1.0.30001550
+  resolution: "caniuse-lite@npm:1.0.30001550"
+  checksum: b48d5a0bd25d634d61f410e0130c5e6c328724285c3c6065644eb41f86a227f5db0eb77da25d0fe3c6c9b04bbd040c9c164bf8dc50dd75cb30fc578aaae562f1
   languageName: node
   linkType: hard
 
@@ -12675,6 +12682,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
+    "@openzeppelin/contracts": ^5.0.0
     husky: ^8.0.1
     lint-staged: ^13.0.3
   languageName: unknown
