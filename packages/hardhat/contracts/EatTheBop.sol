@@ -8,7 +8,7 @@ to get a number as the user eats a specific token.  */
 contract EatTheBop {
      struct Hoarder {
         uint256 timeStarted;
-        bool isHoarding;
+        bool canPlay;
         uint256 reward;
         uint256 Total_AllTime_Reward;
     }
@@ -19,7 +19,7 @@ contract EatTheBop {
     uint256 public points = 0;
     uint256[] public nums;
     mapping(address => uint256) public life;
-    uint public reward = 6000;
+    uint public reward = 6000000000000000000000; //Should reward 6000 BOP tokens
     ERC20 public hoardingToken;
     uint256 public Total_Reward_Pool;
 
@@ -29,30 +29,32 @@ contract EatTheBop {
 
     constructor(address _owner) {
         owner = _owner;
-        hoardingToken = ERC20(0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 );  //Deploy token first
+        hoardingToken = ERC20(0x5FC8d32690cc91D4c39d9d3abcBD16989F875707);  //Deploy token first
     }
 
     function playGame() public payable {
         require(msg.value >= 0.01 ether, "Failed to send enough value");
-        require(address(this).balance >= reward, "Not enough reward"); // If we want to use ETH reward
+        //require(address(this).balance >= reward, "Not enough reward"); // Uncomment if you want to use ETH reward
         require(hoardingToken.balanceOf(address(this)) >= reward, "The contract does not have enough tokens to give you the reward");
-        life[msg.sender] += 3;
+        /*Above we require that the contract has BOP tokens to reward before hoarders can play*/
+        life[msg.sender] += 6; //Hoarders can buy 6 lifes at a time
     }
 
     function earnPoint() public {
-        require(life[msg.sender] > 0, "Out of life");
+        require(life[msg.sender] > 0, "Out of life"); //Required to have lifes to play
         uint randomNumber = uint(keccak256(abi.encode(block.timestamp, msg.sender))) % 10;
         nums.push(randomNumber);
 
-        bool isWinner = false;
-
+        bool isWinner = false; //Not a winner
+        /**Here we set the winning number to 6 following the Project 6 model*/
         if (randomNumber == 6) {
             isWinner = true;
         // Function to transfer reward for finding the real BOP token
         require(hoardingToken.balanceOf(address(this)) >= reward, "The contract does not have enough tokens to give you the reward");
-        hoardingToken.transfer(msg.sender, reward);
-        hoarders[msg.sender].Total_AllTime_Reward += reward;
-        points += 1;
+        hoardingToken.transfer(msg.sender, reward); //tranfers BOP tokens to winner address
+        Total_Reward_Pool -= reward; //decrements the rewards pool when a hoarder wins
+        hoarders[msg.sender].Total_AllTime_Reward += reward; //updates Hoarders All Time Reward tracking
+        points += 1; //increments when a real BOP token is found
         }
 
         else if (randomNumber < 5) {

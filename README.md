@@ -1,8 +1,14 @@
 # Eat The BOP
 
-2D game where you eat BOP tokens looking for the real BOP token on the level to win and earn BOP
+2D game where you eat BOP tokens looking for the real BOP token on the level to win and earn BOP.
 
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, and Typescript.
+The Hoarders searches the board for the real BOP token amoung the fake tokens. The hoarder may have obstacles to move before being able to reach certain tokens. Each time a hoarder eats a token they pay a small fee with a random chance of winning a reward paid in BOP tokens.
+
+⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Chainlink and Typescript.
+
+## How to Play
+
+You first need lifes to play Eat The BOP after clicking the play button look for the Buy Lifes button to purchase 3 Lifes
 
 ## Contents
 
@@ -24,7 +30,7 @@ To get started with Scaffold-ETH 2, follow the steps below:
 1. Clone this repo & install dependencies
 
 ```
-git clone https://github.com/moneyhoardersglobalnetwork/eat_the_bop.git
+git clone https://github.com/moneyhoardersglobalnetwork/eatthebop.git
 cd eatthebop
 yarn install
 ```
@@ -55,9 +61,25 @@ Visit your app on: `http://localhost:3000`. You can interact with your smart con
 
 Run smart contract test with `yarn hardhat:test`
 
+Scaffold-ETH-2 gives us a foundation interface to quickly interact with the game contract.
+
 - Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
 - Edit your frontend in `packages/nextjs/pages`
 - Edit your deployment scripts in `packages/hardhat/deploy`
+
+- Find the main game smart contract `EatTheBop.sol` in `packages/hardhat/contracts`
+- Edit your frontend in `packages/nextjs/pages`
+- Edit your deployment scripts in `packages/hardhat/deploy`
+
+
+ChainLink features we plan to use are Price Feeds, VRF, and CCIP
+
+
+
+
+
+
+
 
 Github pushing
 Git Hub Staging, Commiting, Pushing //Commands for updating repo on github(Build this out)

@@ -60,7 +60,7 @@ const Game = () => {
     const k = kaboom({
       global: false,
       canvas: canvasRef.current,
-      background: [199, 229, 212],
+      background: [199, 300, 212],
     });
 
     k.loadSprite("player-down", "assets/player-down.png");
@@ -72,17 +72,17 @@ const Game = () => {
 
     k.addLevel(
       [
-        `  xxx    e    xe x      `,
-        `  x   xxxx  x xe x    `,
-        `    e x       xx      `,
-        `x  x   x   e   xxxx   `,
-        `x    xx        xx    x`,
-        `x  x  exxxx  xxx  x  x`,
-        `x  x   x    e   x xx  `,
-        `  xxx            x   x`,
-        `  x   xxxx  xxxx x   x`,
-        `   e  x               `,
-        `  x   x    e  xexx     `,
+        `  xxx   xex   xex`,
+        `   x  xxxxxxe x  `,
+        `   xe x      xxx `,
+        ` xxx      e xxxx`,
+        ` x    x   x  xxx`,
+        ` x   xex  x    x `,
+        ` x    x  x    xex`,
+        `   x        x  x `,
+        `xxx     x   x  `,
+        ` exxxx   xxxx   `,
+        `xxxx  xex xexx `,
       ],
       {
         tileWidth: 50,
@@ -129,12 +129,14 @@ const Game = () => {
             className="py-2 px-4 bg-green-500 rounded baseline hover:bg-green-300 disabled:opacity-50"
             onClick={() => payGame()}
           >
-            Add 3 lifes
+            Buy 6 lifes
           </button>
-          <p className="text-slate-500">* Cost 0.01 ETH</p>
+          <p className="text-slate-500">* Cost 0.01 MATIC</p>
           <p className="text-xl mt-20">Notes</p>
-          <p className="text-slate-500 mb-0">* Some Fake ETH can</p>
-          <p className="text-slate-500 mt-0">cause you a life</p>
+          <p className="text-slate-500 mb-0">*Eating Fake BOP can</p>
+          <p className="text-slate-500 mt-0">cost you a life</p>
+          <p className="text-slate-500 mb-0">*You pay gas fees</p>
+          <p className="text-slate-500 mt-0">for every BOP you eat choose wisely</p>
         </div>
         <div>
           <div className="game">

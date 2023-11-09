@@ -41,7 +41,7 @@ export const Header = () => {
       <li>
         <NavLink href="/game">
           <PuzzlePieceIcon className="h-4 w-4" />
-          Game
+          ETB
         </NavLink>
       </li>
       <li>
@@ -83,7 +83,7 @@ export const Header = () => {
           </div>
           <div className="flex flex-col">
             <span className="font-bold leading-tight">Eat The BOP</span>
-            <span className="font-italic leading-tight">A M.H.G.N Game</span>
+            <span className="font-italic leading-tight">A M.H.G.N P2E Game</span>
             <span className="text-xs"></span>
           </div>
         </Link>
