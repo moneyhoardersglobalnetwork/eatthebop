@@ -5,7 +5,7 @@ const contracts = {
       chainId: "31337",
       contracts: {
         BopToken: {
-          address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+          address: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
           abi: [
             {
               inputs: [],
@@ -680,7 +680,7 @@ const contracts = {
           ],
         },
         EatTheBop: {
-          address: "0xc96304e3c037f81dA488ed9dEa1D8F2a48278a75",
+          address: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
           abi: [
             {
               inputs: [
@@ -751,25 +751,6 @@ const contracts = {
               type: "function",
             },
             {
-              inputs: [
-                {
-                  internalType: "address",
-                  name: "_hoarder",
-                  type: "address",
-                },
-              ],
-              name: "GetPlayTimeInSeconds",
-              outputs: [
-                {
-                  internalType: "uint256",
-                  name: "",
-                  type: "uint256",
-                },
-              ],
-              stateMutability: "view",
-              type: "function",
-            },
-            {
               inputs: [],
               name: "Total_Reward_Pool",
               outputs: [
@@ -804,6 +785,19 @@ const contracts = {
             },
             {
               inputs: [],
+              name: "gameToken",
+              outputs: [
+                {
+                  internalType: "contract ERC20",
+                  name: "",
+                  type: "address",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+            {
+              inputs: [],
               name: "getNums",
               outputs: [
                 {
@@ -827,36 +821,13 @@ const contracts = {
               outputs: [
                 {
                   internalType: "uint256",
-                  name: "timeStarted",
-                  type: "uint256",
-                },
-                {
-                  internalType: "bool",
-                  name: "canPlay",
-                  type: "bool",
-                },
-                {
-                  internalType: "uint256",
                   name: "reward",
                   type: "uint256",
                 },
                 {
                   internalType: "uint256",
-                  name: "Total_AllTime_Reward",
+                  name: "points",
                   type: "uint256",
-                },
-              ],
-              stateMutability: "view",
-              type: "function",
-            },
-            {
-              inputs: [],
-              name: "hoardingToken",
-              outputs: [
-                {
-                  internalType: "contract ERC20",
-                  name: "",
-                  type: "address",
                 },
               ],
               stateMutability: "view",
@@ -922,7 +893,7 @@ const contracts = {
             },
             {
               inputs: [],
-              name: "points",
+              name: "reward",
               outputs: [
                 {
                   internalType: "uint256",
@@ -935,7 +906,7 @@ const contracts = {
             },
             {
               inputs: [],
-              name: "reward",
+              name: "reward2",
               outputs: [
                 {
                   internalType: "uint256",

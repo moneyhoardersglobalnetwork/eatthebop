@@ -7,20 +7,17 @@ to get a number as the user eats a specific token.  */
 
 contract EatTheBop {
      struct Hoarder {
-        uint256 timeStarted;
-        bool canPlay;
-        uint256 reward;
-        uint256 Total_AllTime_Reward;
+        uint256 reward; 
+        uint256 points;      
     }
     // State Variables some were taken from BopHoardingContract
     mapping (address => Hoarder) public hoarders;
-    uint256 timeStarted;
     address public immutable owner;
-    uint256 public points = 0;
     uint256[] public nums;
     mapping(address => uint256) public life;
     uint public reward = 6000000000000000000000; //Should reward 6000 BOP tokens
-    ERC20 public hoardingToken;
+    uint public reward2 = 6000000000000000000; //Should reward 6 BOP tokens
+    ERC20 public gameToken;
     uint256 public Total_Reward_Pool;
 
 
@@ -29,13 +26,13 @@ contract EatTheBop {
 
     constructor(address _owner) {
         owner = _owner;
-        hoardingToken = ERC20(0x5FC8d32690cc91D4c39d9d3abcBD16989F875707);  //Deploy token first
+        gameToken = ERC20(0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512);  //Hard coding the reward token (Remember)Deploy token first
     }
 
     function playGame() public payable {
         require(msg.value >= 0.01 ether, "Failed to send enough value");
         //require(address(this).balance >= reward, "Not enough reward"); // Uncomment if you want to use ETH reward
-        require(hoardingToken.balanceOf(address(this)) >= reward, "The contract does not have enough tokens to give you the reward");
+        require(gameToken.balanceOf(address(this)) >= reward, "The contract does not have enough tokens to give you the reward");
         /*Above we require that the contract has BOP tokens to reward before hoarders can play*/
         life[msg.sender] += 6; //Hoarders can buy 6 lifes at a time
     }
@@ -49,12 +46,23 @@ contract EatTheBop {
         /**Here we set the winning number to 6 following the Project 6 model*/
         if (randomNumber == 6) {
             isWinner = true;
-        // Function to transfer reward for finding the real BOP token
-        require(hoardingToken.balanceOf(address(this)) >= reward, "The contract does not have enough tokens to give you the reward");
-        hoardingToken.transfer(msg.sender, reward); //tranfers BOP tokens to winner address
+        // Function to transfer reward for finding the marked BOP token
+        require(gameToken.balanceOf(address(this)) >= reward, "The contract does not have enough tokens to give you the reward");
+        gameToken.transfer(msg.sender, reward); //tranfers BOP tokens to winner address
         Total_Reward_Pool -= reward; //decrements the rewards pool when a hoarder wins
-        hoarders[msg.sender].Total_AllTime_Reward += reward; //updates Hoarders All Time Reward tracking
-        points += 1; //increments when a real BOP token is found
+        hoarders[msg.sender].reward += reward; //updates Hoarders All Time Reward tracking
+        hoarders[msg.sender].points += 1; //updates Hoarders points
+        }
+
+        /**Here we set the winning number to 6 following the Project 6 model*/
+        if (randomNumber > 6) {
+            isWinner = true;
+        // Function to transfer reward2 for finding the real BOP token
+        require(gameToken.balanceOf(address(this)) >= reward2, "The contract does not have enough tokens to give you the reward");
+        gameToken.transfer(msg.sender, reward2); //tranfers BOP tokens to winner address
+        Total_Reward_Pool -= reward; //decrements the rewards pool when a hoarder wins
+        hoarders[msg.sender].reward += reward2; //updates Hoarders Reward tracking in the Struct
+        hoarders[msg.sender].points += 1; //updates Hoarders points
         }
 
         else if (randomNumber < 5) {
@@ -73,15 +81,11 @@ contract EatTheBop {
         return false;
     }
 
-    //Read only function that checks the hoarders hoarding time in seconds.
-    function GetPlayTimeInSeconds(address _hoarder) public view returns (uint256) {
-        return block.timestamp - hoarders[_hoarder].timeStarted;
-    }
 
      //Transfers tokens to the BOP rewards pool the tokens can't be withdrawn!
     function DonationPool(uint256 _amount) public  {
-        require(hoardingToken.balanceOf(msg.sender) >= 0, "You cannot pool more tokens than you hold");
-        hoardingToken.transferFrom(msg.sender, address(this), _amount);
+        require(gameToken.balanceOf(msg.sender) >= 0, "You cannot pool more tokens than you hold");
+        gameToken.transferFrom(msg.sender, address(this), _amount);
         Total_Reward_Pool += _amount;
         emit Pooled(msg.sender, _amount);
     }
