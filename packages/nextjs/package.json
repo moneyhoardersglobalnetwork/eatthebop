@@ -26,6 +26,8 @@
     "@web3auth/web3auth-wagmi-connector": "^4.0.1",
     "blo": "^1.0.1",
     "daisyui": "^3.5.1",
+    "ethers": "^6.13.4",
+    "kaboom": "^3000.1.17",
     "next": "^13.1.6",
     "nextjs-progressbar": "^0.0.16",
     "qrcode.react": "^3.1.0",

@@ -1,17 +1,28 @@
-# 🏗 Scaffold-ETH 2
+# 🏗 Eat The BOP
+A Hack 2 Earn Project
 
 <h4 align="center">
   <a href="https://docs.scaffoldeth.io">Documentation</a> |
   <a href="https://scaffoldeth.io">Website</a>
 </h4>
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+2D commit and reveal game where you eat tokens looking for the real tokens uh` on the level to win and earn BOP.
 
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, and Typescript.
+The Hoarders searches the board for the real BOP token amoung the fake tokens. The hoarder may have obstacles to move before being able to reach certain tokens. Each time a hoarder eats a token they pay a small fee with a random chance of winning a reward paid in BOP tokens.
+
+⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Typescript, Kaboom, Web3Auth.
 
 - ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
 - 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
 - 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
+
+- ✅ **Social Logins**: Now integrated with web3Auth for social login with Google, Emails, Facebook, X formerly Twitter, Discord.
+
+Game currently works when built and hosted locally.
+
+## How to Play
+
+You first need lifes to play Eat The BOP after clicking the play button look for the Buy Lifes button to purchase 6 Lifes
 
 ![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/1171422a-0ce4-4203-bcd4-d2d1941d198b)
 
@@ -76,3 +87,33 @@ To know more about its features, check out our [website](https://scaffoldeth.io)
 We welcome contributions to Scaffold-ETH 2!
 
 Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+
+Github pushing
+Git Hub Staging, Commiting, Pushing //Commands for updating repo on github(Build this out)
+
+//Check remote origin
+
+git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+
+git remote -v
+
+git add . //adds modified files to commit# mhgn-hoarding-gateway
+
+git commit -m "update from local" // Commit your changes to be pushed to repo
+
+Use the --no-verify option to skip git commit hooks, e.g. git commit -m "commit message" --no-verify . When the --no-verify option is used, the pre-commit and commit-msg hooks are bypassed. Copied! You can also use the -n option, which is short for --no-verify .
+
+git push //push to repo //Push updates to repo (main)
+
+# To Do
+Migrate Eat The BOP to Web3Auth to allow social logins
+Upgrade Area 1 with new gameplay features:
+-Multiple tokens on board (POL,BTC,ETH,LTC,DOT,BNB,CORE)
+-Add the abiltiy to buy lifes with USDC with cross-chain transfer ability.
+-Add new token and obstacle png files to nextjs/public/assets.
+-Test new ways to interact with tokens like different rewards.
+
+Build area 2
+-In area 2 Bitcoin has been added as the second token on board.
+-The obstacle has been changed to roadblock.png
+-Each new area will feature a mix of different tokens and obstacles.

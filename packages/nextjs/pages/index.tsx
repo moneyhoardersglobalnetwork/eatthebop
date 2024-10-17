@@ -32,24 +32,23 @@ const Home: NextPage = () => {
       <div className="flex items-center flex-col flex-grow pt-10">
         <div className="px-5">
           <h1 className="text-center mb-8">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Scaffold-ETH 2</span>
+          <img alt="Scratchcard" className="cursor-pointer" width={400} height={400} src="/assets/eatthebop.png" />
+          <img alt="Scratchcard" className="cursor-pointer" width={400} height={400} src="/assets/index_img.jpeg" />
+            <span className="block text-4xl font-bold">Eat The BOP</span>
           </h1>
-          <p className="text-center text-lg">
-            Get started by editing{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/nextjs/pages/index.tsx
-            </code>
-          </p>
-          <p className="text-center text-lg">
-            Edit your smart contract{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              YourContract.sol
-            </code>{" "}
-            in{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/hardhat/contracts
-            </code>
+          <p className="text-center text-lg"><div>Gameplay:</div>
+          The game board is scattered with tokens like
+          <div>BOP, POL, BTC, etc.</div>
+          <div>Some tokens are real and some are fake</div>Find the real tokens to win rewards
+          <div className="center">
+            <Link
+              href="/game"
+              passHref
+              className=" py-2 px-16 mb-1 mt-3 bg-green-500 rounded baseline hover:bg-green-300 disabled:opacity-50"
+            >
+              Play
+            </Link>
+          </div>
           </p>
         </div>
 
@@ -58,9 +57,9 @@ const Home: NextPage = () => {
             <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
               <BugAntIcon className="h-8 w-8 fill-secondary" />
               <p>
-                Tinker with your smart contract using the{" "}
+                Advanced Interaction{" "}
                 <Link href="/debug" passHref className="link">
-                  Debug Contract
+                  Debug Contracts
                 </Link>{" "}
                 tab.
               </p>
@@ -68,11 +67,11 @@ const Home: NextPage = () => {
             <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
               <SparklesIcon className="h-8 w-8 fill-secondary" />
               <p>
-                Experiment with{" "}
+                Got BOP{" "}
                 <Link href="/example-ui" passHref className="link">
-                  Example UI
+                  The BOP Faucet
                 </Link>{" "}
-                to build your own UI.
+                drips free tokens.
               </p>
             </div>
             <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">

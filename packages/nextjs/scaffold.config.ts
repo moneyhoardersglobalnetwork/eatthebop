@@ -12,7 +12,7 @@ export type ScaffoldConfig = {
 
 const scaffoldConfig = {
   // The network where your DApp lives in
-  targetNetwork: chains.hardhat,
+  targetNetwork: chains.polygon,
 
   // The interval at which your front-end polls the RPC servers for new data
   // it has no effect on the local network
@@ -36,7 +36,7 @@ const scaffoldConfig = {
   // .env.local for local testing, and in the Vercel/system env config for live apps.
   web3AuthClientId:
     process.env.NEXT_WEB3AUTH_CLIENT_ID ||
-    "BJtKsACML8eLY8Wd_C_PzGazU7c9dsAfrhvZ79-1Hh7IkJJqPDPlevNt_DQPXv1VeQzgOwExN8FH6Mgrx8AeP2c",
+    "BEwDMJeun2dfhiRRKtIZEyiR_kI_rk8HG-L88sIIAh39OfaF6YojgLhWKr2BIqK9cHGV2o5SBAlyVF5D6dR-rU0",
 
   // Only show the Burner Wallet when running on hardhat network
   onlyLocalBurnerWallet: true,
